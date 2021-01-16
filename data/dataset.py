@@ -80,8 +80,8 @@ class RANZERDataset(Dataset):
 
 
 if __name__ == '__main__':
-    data_dir = '/raid/chenby/CLiP/train'
-    df_train = pd.read_csv('/data1/cby/py_project/CLiP/data/csv/train_folds.csv')
+    data_dir = '/raid/chenby/CLiP/train'  # 需要改这个路劲
+    df_train = pd.read_csv('/data1/cby/py_project/CLiP/data/csv/train_folds.csv')  # 需要改这个路劲
     df_train['file_path'] = df_train.StudyInstanceUID.apply(lambda x: os.path.join(data_dir, f'{x}.jpg'))
     dataset = RANZERDataset(df_train, 'train', transform=get_transforms())
     train_loader = DataLoader(dataset, batch_size=4, shuffle=False, num_workers=4)

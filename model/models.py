@@ -1,5 +1,4 @@
 import torch
-import pretrainedmodels
 import torch.nn as nn
 from torch.nn import init
 import torchvision

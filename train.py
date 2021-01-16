@@ -125,7 +125,7 @@ if __name__ == '__main__':
     early_stop = 5
 
     kernel_type = args.model_name
-    data_dir = '/raid/chenby/CLiP/train'
+    data_dir = '/raid/chenby/CLiP/train'  # 修改这个路劲
     model_dir = f'output/weights/' + kernel_type
     write_dir = f'output/logs/{kernel_type}'
     if not os.path.isdir(model_dir):
@@ -137,7 +137,8 @@ if __name__ == '__main__':
     seed_everything(seed)
     device = torch.device(f'cuda:{args.device_id}')
 
-    df_train = pd.read_csv('/data1/cby/py_project/CLiP/data/csv/train_folds.csv')
+    csv_path = '/data1/cby/py_project/CLiP/data/csv/train_folds.csv'  # 修改这个路劲
+    df_train = pd.read_csv(csv_path)
     df_train['file_path'] = df_train.StudyInstanceUID.apply(lambda x: os.path.join(data_dir, f'{x}.jpg'))
     if debug:
         df_train = df_train.sample(frac=0.1)
