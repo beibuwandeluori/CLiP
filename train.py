@@ -183,7 +183,7 @@ if __name__ == '__main__':
             f'loss_train: {loss_train:.5f}, loss_valid: {loss_valid:.5f}, roc_auc: {roc_auc:.6f}.'
         print(content)
         with open(write_file, 'a') as outF:
-            outF.write(content)
+            outF.write(content + '\n')
         not_improving += 1
 
         if roc_auc > roc_auc_max:
