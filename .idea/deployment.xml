@@ -12,7 +12,7 @@
       <paths name="RANZER">
         <serverdata>
           <mappings>
-            <mapping deploy="/py_project/CLiP" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/data1/cby/py_project/CLiP" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

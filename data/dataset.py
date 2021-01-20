@@ -40,6 +40,16 @@ def get_transforms(mode_type='train', image_size=512):
             albumentations.Normalize(),
         ])
         return transforms_train
+    elif mode_type == 'tta_valid':
+        transforms_valid = albumentations.Compose([
+            # albumentations.Resize(image_size, image_size),
+            albumentations.RandomResizedCrop(image_size, image_size, scale=(0.9, 1), p=1),
+            albumentations.HorizontalFlip(p=0.5),
+            albumentations.HueSaturationValue(hue_shift_limit=10, sat_shift_limit=10, val_shift_limit=10, p=0.7),
+            albumentations.RandomBrightnessContrast(brightness_limit=(-0.2, 0.2), contrast_limit=(-0.2, 0.2), p=0.7),
+            albumentations.Normalize()
+        ])
+        return transforms_valid
     else:
         transforms_valid = albumentations.Compose([
             albumentations.Resize(image_size, image_size),

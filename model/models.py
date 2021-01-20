@@ -7,6 +7,8 @@ import torch.nn.functional as F
 import numpy as np
 import math
 from torch.nn.parameter import Parameter
+# import sys
+# sys.path.append('/data1/cby/py_project/CLiP/model/pytorch-image-models-master')
 import timm
 
 
@@ -53,10 +55,10 @@ class RANZCRResNet200D(nn.Module):
 
 if __name__ == '__main__':
     # model, image_size = get_efficientnet(model_name='efficientnet-b3', num_classes=5000, pretrained=True), 224
-    # model, image_size = RANZCRResNet200D(model_name='resnet101', out_dim=11, pretrained=False), 224
-    model, image_size = EfficientNet_ns(model_arch='tf_efficientnet_b3_ns', n_class=11, pretrained=True), 224
+    model, image_size = RANZCRResNet200D(model_name='resnet200d', out_dim=11, pretrained=True), 224
+    # model, image_size = EfficientNet_ns(model_arch='tf_efficientnet_b3_ns', n_class=11, pretrained=True), 224
     # print(model)
-    image_size = 512
+    image_size = 224
     model = model.to(torch.device('cpu'))
     from torchsummary import summary
     # input_s = (3, image_size, image_size)

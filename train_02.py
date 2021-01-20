@@ -112,11 +112,7 @@ args = parser.parse_args()
 
 
 if __name__ == '__main__':
-    model_paths = ['/data1/cby/py_project/CLiP/output/weights/resnet200d/f0_e18_AUC0.946.pth',
-                   '/data1/cby/py_project/CLiP/output/weights/resnet200d/f1_e19_AUC0.951.pth',
-                   '/data1/cby/py_project/CLiP/output/weights/resnet200d/f2_e15_AUC0.952.pth',
-                   '/data1/cby/py_project/CLiP/output/weights/resnet200d/f3_e16_AUC0.953.pth',
-                   '/data1/cby/py_project/CLiP/output/weights/resnet200d/f4_e16_AUC0.952.pth']
+
     fold_id = args.k
     image_size = args.input_size
     seed = 42
@@ -155,15 +151,6 @@ if __name__ == '__main__':
         model = RANZCRResNet200D(out_dim=len(target_cols), pretrained=True)
     else:
         model = EfficientNet_ns(model_arch=kernel_type, n_class=11, pretrained=True)
-
-    model_path = model_paths[fold_id]
-    # model_path = None
-    if model_path is not None:
-        # model = torch.load(model_path)
-        model.load_state_dict(torch.load(model_path, map_location='cpu'))
-        print('Model found in {}'.format(model_path))
-    else:
-        print('No model found, initializing random model.')
 
     model = model.to(device)
 

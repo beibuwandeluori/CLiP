@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="2f9a67d1-7a4a-455f-a1a9-3cb844068131" name="RANZER" url="http://172.31.224.60">
-        <fileTransfer host="172.31.224.60" port="22" rootFolder="/data1/cby" accessType="SFTP">
+        <fileTransfer host="172.31.224.60" port="22" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
